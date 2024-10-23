@@ -1,0 +1,6 @@
+{
+   "env": {
+       "baseURL": "https://www.saucedemo.com"
+     },
+     "chromeWebSecurity": false
+}
