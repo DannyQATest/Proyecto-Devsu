@@ -1,2 +1,2 @@
 # Proyecto-Devsu
-Desarrollo de ejerciicos tanto E2E y APIS
+Desarrollo de ejercicios tanto E2E y API
