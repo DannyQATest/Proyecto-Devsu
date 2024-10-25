@@ -1,0 +1,88 @@
+Hallazgos y Conclusiones:
+1. Crear un Usuario
+Entradas:
+Enviar un POST a /user con un objeto de usuario que incluya username, firstName, lastName, email, password, y phone.
+
+Variables y Configuración:
+Se utiliza un objeto JSON con valores definidos para cada propiedad (por ejemplo, username: "storeUser").
+
+Salidas Esperadas:
+Código de estado 200 indicando creación exitosa.
+
+Hallazgos:
+Si se obtienen errores en el esquema o fallos de validación (por ejemplo, campos obligatorios que no se reportan como tales), puede ser un indicador de validaciones inadecuadas en la API.
+
+Conclusión:
+Un usuario creado exitosamente con datos válidos asegura que la API está correctamente configurada para admitir nuevos usuarios, lo cual es esencial para la escalabilidad de la aplicación.
+
+
+2. Buscar el Usuario Creado
+Entradas:
+Realizar un GET a /user/{username} usando el username del usuario recién creado.
+
+Variables y Configuración:
+El username debe ser el mismo que se usó en la creación.
+
+Salidas Esperadas:
+Código de estado 200 con un objeto JSON que contenga los datos del usuario creado.
+
+Hallazgos:
+Un código 404 o un error podría indicar problemas en la persistencia de datos, o que la operación GET no busca correctamente en la base de datos.
+Datos incompletos o errores en el formato pueden señalar problemas en la estructura de datos o en el almacenamiento.
+
+Conclusión:
+Una búsqueda exitosa confirma que los datos del usuario se guardaron correctamente y que la API permite recuperarlos, esencial para cualquier sistema de gestión de usuarios.
+
+
+3. Actualizar el Nombre y el Correo del Usuario
+Entradas:
+Realizar un PUT a /user/{username} con un objeto JSON actualizado (modificando username y email).
+
+Variables y Configuración:
+Deben incluirse los nuevos valores para el nombre y el correo.
+
+Salidas Esperadas:
+Código de estado 200 con un mensaje de confirmación.
+
+Hallazgos:
+Un código de error, como 404, puede indicar que el usuario no se encuentra, lo que sugiere problemas en la persistencia o errores en el endpoint de actualización.
+Si los datos actualizados no se reflejan, puede ser un indicio de que el método PUT no sobrescribe correctamente la información en la base de datos.
+
+Conclusión:
+La capacidad de actualizar datos del usuario demuestra que la API permite modificaciones dinámicas, lo que es crucial para mantener información actualizada en tiempo real.
+
+
+4. Buscar el Usuario Actualizado
+Entradas:
+Realizar otro GET a /user/{username} después de la actualización.
+
+Variables y Configuración:
+Utilizar el mismo username que en la creación y actualización del usuario.
+
+Salidas Esperadas:
+Código de estado 200 con los datos actualizados del usuario en el objeto JSON.
+
+Hallazgos:
+Si los datos previos a la actualización aún persisten, puede señalar problemas de caché o falta de sincronización en el almacenamiento.
+
+Conclusión:
+Confirmar los datos actualizados demuestra que la API gestiona correctamente el ciclo de vida de los datos, lo cual es esencial para la integridad de la información.
+
+
+5. Eliminar el Usuario
+Entradas:
+Realizar un DELETE a /user/{username} para el usuario creado y actualizado.
+
+Variables y Configuración:
+Utilizar el username del usuario en las pruebas previas.
+
+Salidas Esperadas:
+Código de estado 200 confirmando la eliminación del usuario.
+
+Hallazgos:
+Si el usuario sigue disponible después de la eliminación, podría señalar problemas con el método DELETE o con la persistencia de los datos.
+Códigos de error (como 404) al intentar eliminar el usuario pueden indicar problemas con la búsqueda interna o con la estructura de base de datos.
+
+Conclusión:
+La capacidad de eliminar un usuario asegura que la API gestiona adecuadamente los recursos y permite la remoción de datos no deseados, importante para la administración y el rendimiento del sistema.
+
