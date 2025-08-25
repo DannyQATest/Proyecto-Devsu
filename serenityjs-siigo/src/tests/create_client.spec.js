@@ -41,7 +41,6 @@ describe("Siigo - Crear cliente (tercero) - Serenity/JS + Playwright", () => {
         identificacion: `${Date.now()}`.slice(-10).replace(/^0/, "1"),
         ciudad,
       })
-      //Ensure.that(ClientFormPage.estadoActivoText(), isVisible())
     );
   });
 });
