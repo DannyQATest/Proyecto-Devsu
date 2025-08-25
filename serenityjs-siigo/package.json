@@ -1,0 +1,30 @@
+{
+  "name": "serenityjs-siigo",
+  "version": "1.0.0",
+  "description": "Automatización E2E Siigo - Login y creación de cliente (tercero) con Serenity/JS + Playwright + Screenplay",
+  "scripts": {
+    "preinstall": "node -v && npm -v",
+    "postinstall": "npx playwright install",
+    "pretest": "tsc -p tsconfig.json --noEmit false",
+    "test": "mocha --require @serenity-js/core/register \"src/tests/**/*.spec.js\" --timeout 120000",
+    "report": "serenity-bdd run --features ./ --reports ./target/site/serenity",
+    "test:headed": "mocha 'src/tests/**/*.spec.js' --timeout 120000"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@serenity-js/assertions": "^3.20.2",
+    "@serenity-js/console-reporter": "^3.20.2",
+    "@serenity-js/core": "^3.34.1",
+    "@serenity-js/mocha": "^3.34.1",
+    "@serenity-js/playwright": "^3.34.1",
+    "@serenity-js/serenity-bdd": "^3.34.1",
+    "@serenity-js/web": "^3.34.1",
+    "@types/node": "^24.3.0",
+    "chai": "^4.3.10",
+    "expect": "^30.0.5",
+    "mocha": "^11.7.1",
+    "playwright": "^1.55.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "CommonJS",
+    "lib": ["ES2021", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "build",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "features/**/*.ts"]
+}
